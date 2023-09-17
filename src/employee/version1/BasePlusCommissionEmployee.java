@@ -122,10 +122,10 @@ public class BasePlusCommissionEmployee {
     @Override
     public String toString() {
         return String.format("Employee Information: "
-                + "\nID: " + this.getID()
-                + "\nName: " + this.getName()
-                + "\nDate Hired: " + convert().format(this.getHireDate())
-                + "\nDate of Birth: " + convert().format(this.getBirthDate())
+                + "\nID: " + this.empID
+                + "\nName: " + this.empName
+                + "\nDate Hired: " + convert().format(this.empDateHired)
+                + "\nDate of Birth: " + convert().format(this.empBirthDate)
                 + "\nTotal Sales: " + format(this.totalSales)
                 + "\nBase Salary: " + format(this.baseSalary)
                 + "\nSalary: " + format(this.computeSalary()) + "\n");
