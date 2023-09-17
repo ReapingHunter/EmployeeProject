@@ -123,8 +123,8 @@ public class HourlyEmployee {
                 + "\nName: " + this.empName
                 + "\nDate Hired: " + convert().format(this.empDateHired)
                 + "\nDate of Birth: " + convert().format(this.empBirthDate)
-                + "\nTotal Hours Worked: " + this.getTotalHours()
-                + "\nRate per Hour: " + this.getHourlyRate()
+                + "\nTotal Hours Worked: " + this.totalHoursWorked
+                + "\nRate per Hour: " + this.ratePerHour
                 + "\nSalary: " + format(this.computeSalary()) + "\n");
     }
 
