@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package employee.version3;
+package employee.version4;
 import java.time.*;
 
 /**
@@ -37,9 +37,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee{
     
     @Override
     public double computeSalary() {
-        double salary;
-        salary = super.computeSalary() + this.baseSalary;
-        return salary;
+        return super.computeSalary() + this.baseSalary;
     }
     
     @Override

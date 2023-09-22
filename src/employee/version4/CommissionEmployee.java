@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package employee.version3;
+package employee.version4;
 import java.time.*;
 
 /**
@@ -35,7 +35,6 @@ public class CommissionEmployee extends Employee{
     }
 
     public double computeSalary() {
-        double salary;
         double [] array = {0.05, 0.2, 0.3, 0.5};
         int ndx;
         if (this.totalSales < 50000) {
@@ -47,7 +46,7 @@ public class CommissionEmployee extends Employee{
         } else {
             ndx = 3;
         }
-        return salary = this.totalSales * array[ndx];
+        return this.totalSales * array[ndx];
     }
     
     @Override

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package employee.version3;
+package employee.version4;
 
 import java.time.*;
 
@@ -47,9 +47,7 @@ public class PieceWorkerEmployee extends Employee {
     }
 
     public double computeSalary() {
-        double salary;
-        salary = this.totalPiecesFinished * this.ratePerPiece + (this.ratePerPiece * 10 * (this.totalPiecesFinished / 100));
-        return salary;
+        return this.totalPiecesFinished * this.ratePerPiece + (this.ratePerPiece * 10 * (this.totalPiecesFinished / 100));
     }
 
     @Override

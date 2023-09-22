@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package employee.version3;
+package employee.version4;
 import java.time.*;
 
 /**
@@ -45,14 +45,12 @@ public class HourlyEmployee extends Employee{
     }
 
     public double computeSalary() {
-        double salary;
         float overtimeHours = 0;
         if (this.totalHoursWorked > 40) {
             overtimeHours = this.totalHoursWorked - 40;
         }
         float necessaryHours = this.totalHoursWorked - overtimeHours;
-        salary = this.ratePerHour * necessaryHours + (overtimeHours * this.ratePerHour * 1.5);
-        return salary;
+        return this.ratePerHour * necessaryHours + (overtimeHours * this.ratePerHour * 1.5);
     }
     
     
