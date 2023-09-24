@@ -13,7 +13,7 @@ public class EmployeeRoster {
     private Employee[] empList;
     private int count;
     private int MAX = 10;
-    private String format = "| %s | %s | %s | %s | %s |"
+    private String format = "| %s | %s | %s | %s | %s |";
     
     public EmployeeRoster() {
         empList = new Employee[MAX];
