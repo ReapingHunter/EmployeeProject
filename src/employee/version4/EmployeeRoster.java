@@ -12,16 +12,17 @@ import java.time.*;
 public class EmployeeRoster {
     private Employee[] empList;
     private int count;
-    private int MAX;
+    private int MAX = 10;
+    private String format = "| %s | %s | %s | %s | %s |
     
     public EmployeeRoster() {
-        MAX = 10;
+        empList = new Employee[MAX];
         count = 0;
     }
     
     public EmployeeRoster(int size) {
         MAX = size;
-        count = 0;
+        this();
     }
 
     public Employee[] getEmpList() {
@@ -32,10 +33,6 @@ public class EmployeeRoster {
         return count;
     }
 
-    public int getMAX() {
-        return MAX;
-    }
-
     public void setEmpList(Employee[] empList) {
         this.empList = empList;
     }
@@ -43,17 +40,13 @@ public class EmployeeRoster {
     public void setCount(int count) {
         this.count = count;
     }
-
-    public void setMAX(int MAX) {
-        this.MAX = MAX;
-    }
     
     public void displayEmployee(Employee e) {
-        System.out.println(this);
+
     }
     
     public void displayAllEmployee() {
-        System.out.println(this);
+
     }
     
     public int countHE() {
