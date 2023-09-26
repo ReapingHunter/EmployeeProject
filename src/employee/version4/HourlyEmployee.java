@@ -44,6 +44,7 @@ public class HourlyEmployee extends Employee{
         this.ratePerHour = hourlyRate;
     }
 
+    @Override
     public double computeSalary() {
         float overtimeHours = 0;
         if (this.totalHoursWorked > 40) {
