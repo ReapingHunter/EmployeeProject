@@ -63,7 +63,10 @@ public class Employee {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         return formatter;
     }
-
+    
+    public double computeSalary() {
+        return 0;
+    }
     public Formatter format(double d) {
         Formatter formatter = new Formatter();
         formatter.format("%.2f", d);
