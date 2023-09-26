@@ -42,9 +42,13 @@ public class EmployeeRoster {
     
     public void displayEmployee(Employee type) {
         int x;
-        for(x = 0; x < count; x++) {
-            System.out.println(type);
+        if(count != 0) {
+            for(x = 0; x < count; x++) {
+                System.out.println(this + "\n"
+                                   + "|" + type.getID() + "   |   " + type.getName() + "   |   " + type.getClass().getSimpleName() + "   |   " + type.format(type.computeSalary()));
+            }
         }
+        
     }
     
     public void displayAllEmployee() {
@@ -66,12 +70,13 @@ public class EmployeeRoster {
     
     public int countPWE() {
         int x;
+        int c = 0;
         for(x = 0; x < count; x++) {
             if(empList[x] instanceof PieceWorkerEmployee) {
-                x++;
+                c++;
             }
         }
-        return x;
+        return c;
     }
     
     public int countCE() {
@@ -94,33 +99,45 @@ public class EmployeeRoster {
         return x;
     }
     
-    public boolean addEmployee(Employee e) {
-        if(count != MAX) {
-            empList[count].setID(e.getID());
-            empList[count].setName(e.getName());
-            empList[count].setHireDate(e.getHireDate());
-            empList[count].setBirthDate(e.getBirthDate());
-            
+    public boolean addEmployee(Employee ... e) {
+        for(Employee x : e){
+            empList[count++] = x;
             return true;
         }
         return false;
     }
     
     public Employee removeEmployee(int id) {
+        int x;
+        Employee empDel;
+        for(x = 0; x < count && empList[x].getID() != id; x++){}
+        if(x != count) {
+            empDel = empList[x];
+            for(;x < --count; x++) {
+                empList[x] = empList[x+1];
+            }
+            empList[x+1] = null;
+            return empDel;
+        }
+        return null;
         
     }
     
     public void updateEmployee(int id, String name, LocalDate hireDate, LocalDate birthDate) {
-        
+        int x;
+        for(x = 0; x < count && empList[x].getID() != id; x++){}
+        empList[x].setID(empList[x].getID());
+        empList[x].setName(empList[x].getName());
+        empList[x].setHireDate(empList[x].getHireDate());
+        empList[x].setBirthDate(empList[x].getBirthDate());
     }
     
-    public EmployeeRoster searchEmployee(String keyword) {
-        EmployeeRoster emp;
-        return emp;
-    }
+//    public EmployeeRoster searchEmployee(String keyword) {
+//        EmployeeRoster emp;
+//        return emp;
+//    }
     @Override
     public String toString(){
-        int x = 0;
-        return String.format("| %s | %s | %s | %s |",empList[x].getID(), empList[x].getName(), empList[x].type, empList[x].computeSalary());
+        return String.format("|    ID    |    Name    |    Type    |    Salary    |");
     }
 }
