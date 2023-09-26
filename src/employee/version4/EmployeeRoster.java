@@ -42,39 +42,68 @@ public class EmployeeRoster {
     
     public void displayEmployee(Employee type) {
         int x;
-        for(x = 0; x < MAX; x++) {
-            if(empList[x] instanceof type){
-                
-            }
+        for(x = 0; x < count; x++) {
+            System.out.println(type);
         }
     }
     
     public void displayAllEmployee() {
         int x;
-        for(x = 0; x < MAX; x++){
+        for(x = 0; x < count; x++){
             System.out.println(empList[x]);
         }
     }
     
     public int countHE() {
-        
+        int x;
+        for(x = 0; x < count; x++) {
+            if(empList[x] instanceof HourlyEmployee) {
+                x++;
+            }
+        }
+        return x;
     }
     
     public int countPWE() {
-        
+        int x;
+        for(x = 0; x < count; x++) {
+            if(empList[x] instanceof PieceWorkerEmployee) {
+                x++;
+            }
+        }
+        return x;
     }
     
     public int countCE() {
-        
+        int x;
+        for(x = 0; x < count; x++) {
+            if(empList[x] instanceof CommissionEmployee) {
+                x++;
+            }
+        }
+        return x;
     }
     
     public int countBPCE() {
-        
+        int x;
+        for(x = 0; x < count; x++) {
+            if(empList[x] instanceof BasePlusCommissionEmployee) {
+                x++;
+            }
+        }
+        return x;
     }
     
     public boolean addEmployee(Employee e) {
-        empList[count].setID(e.getID());
-        empList[count].setName(e.getName());
+        if(count != MAX) {
+            empList[count].setID(e.getID());
+            empList[count].setName(e.getName());
+            empList[count].setHireDate(e.getHireDate());
+            empList[count].setBirthDate(e.getBirthDate());
+            
+            return true;
+        }
+        return false;
     }
     
     public Employee removeEmployee(int id) {
@@ -85,8 +114,9 @@ public class EmployeeRoster {
         
     }
     
-    public EmployeeRoster searchEmployee() {
-        
+    public EmployeeRoster searchEmployee(String keyword) {
+        EmployeeRoster emp;
+        return emp;
     }
     @Override
     public String toString(){
