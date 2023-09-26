@@ -13,7 +13,6 @@ public class EmployeeRoster {
     private Employee[] empList;
     private int count;
     private int MAX = 10;
-    private String format = "| %s | %s | %s | %s | %s |";
     
     public EmployeeRoster() {
         empList = new Employee[MAX];
@@ -21,8 +20,8 @@ public class EmployeeRoster {
     }
     
     public EmployeeRoster(int size) {
-        MAX = size;
         this();
+        MAX = size;
     }
 
     public Employee[] getEmpList() {
@@ -41,12 +40,20 @@ public class EmployeeRoster {
         this.count = count;
     }
     
-    public void displayEmployee(Employee e) {
-
+    public void displayEmployee(Employee type) {
+        int x;
+        for(x = 0; x < MAX; x++) {
+            if(empList[x] instanceof type){
+                
+            }
+        }
     }
     
     public void displayAllEmployee() {
-
+        int x;
+        for(x = 0; x < MAX; x++){
+            System.out.println(empList[x]);
+        }
     }
     
     public int countHE() {
@@ -66,7 +73,8 @@ public class EmployeeRoster {
     }
     
     public boolean addEmployee(Employee e) {
-        
+        empList[count].setID(e.getID());
+        empList[count].setName(e.getName());
     }
     
     public Employee removeEmployee(int id) {
@@ -80,7 +88,9 @@ public class EmployeeRoster {
     public EmployeeRoster searchEmployee() {
         
     }
-    
+    @Override
+    public String toString(){
+        int x = 0;
+        return String.format("| %s | %s | %s | %s |",empList[x].getID(), empList[x].getName(), empList[x].type, empList[x].computeSalary());
+    }
 }
-
-
