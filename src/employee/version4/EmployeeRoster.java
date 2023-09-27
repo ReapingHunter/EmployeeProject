@@ -13,6 +13,7 @@ public class EmployeeRoster {
     private Employee[] empList;
     private int count;
     private int MAX = 10;
+    private String format = "| %s | %s | %s | %s |\n";
     
     public EmployeeRoster() {
         empList = new Employee[MAX];
@@ -42,10 +43,10 @@ public class EmployeeRoster {
     
     public void displayEmployee(Employee type) {
         int x;
+        System.out.println(this);
         if(count != 0) {
             for(x = 0; x < count; x++) {
-                System.out.println(this + "\n"
-                                   + "|" + type.getID() + "   |   " + type.getName() + "   |   " + type.getClass().getSimpleName() + "   |   " + type.format(type.computeSalary()));
+                System.out.printf(format, empList[x].getID(), empList[x].getName(), empList[x].getClass().getSimpleName(), empList[x].getClass().getSimpleName());
             }
         }
         
@@ -54,6 +55,9 @@ public class EmployeeRoster {
     public void displayAllEmployee() {
         int x;
         for(x = 0; x < count; x++){
+            if(empList[x] instanceof HourlyEmployee) {
+                
+            }
             System.out.println(empList[x]);
         }
     }
@@ -138,6 +142,6 @@ public class EmployeeRoster {
 //    }
     @Override
     public String toString(){
-        return String.format("|    ID    |    Name    |    Type    |    Salary    |");
+        return String.format("|     ID     |     Name     |    Type     |     Salary    |");
     }
 }
