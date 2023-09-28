@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package employee.version4;
+package employee.version5;
 import java.time.*;
 
 /**^
@@ -13,7 +13,7 @@ import java.time.*;
 public class TestMain {
     
     public static void main(String[] args) {
-        EmployeeRoster empList = new EmployeeRoster(20);
+        EmployeeRoster empList = new EmployeeRoster();
         EmployeeRoster searchEmp;
         HourlyEmployee h = new HourlyEmployee(20103264, new Name("Marlex", "Manalili", "Acorin"), LocalDate.of(2015, 5, 14), LocalDate.of(2003, 5, 13), 45.4f, 315);
         HourlyEmployee h2 = new HourlyEmployee(1, new Name("The", "Keeper", "K"), LocalDate.of(2015, 5, 14), LocalDate.of(2003, 5, 13), 38.8f, 215);
@@ -63,9 +63,8 @@ public class TestMain {
         empList.updateEmployee(43, new Name("The", "Cringer"), LocalDate.MIN, LocalDate.MIN);
         empList.displayEmployee(c3);
         empList.displayAllEmployee();
-        System.out.println(empList.countPWE());
-        System.out.println(empList.getCount());
-        searchEmp = empList.searchEmployee("e");
+        System.out.println(empList.countHE());
+        searchEmp = empList.searchEmployee("the");
     }
 }
 
