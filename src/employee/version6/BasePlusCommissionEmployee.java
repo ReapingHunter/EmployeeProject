@@ -42,13 +42,13 @@ public class BasePlusCommissionEmployee extends CommissionEmployee{
     
     @Override
     public void displayInfo() {
-        System.out.println(this + "\nSalary: " + format(this.computeSalary()) + "\n");
+        System.out.println(this + "\nSalary: " + this.computeSalary() + "\n");
     }
     
     @Override
     public String toString() {
         return String.format(super.toString()
-                + "\nBase Salary: " + format(this.baseSalary));
+                + "\nBase Salary: " + this.baseSalary);
     }
 
 }

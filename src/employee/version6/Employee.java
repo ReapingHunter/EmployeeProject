@@ -59,16 +59,6 @@ public abstract class Employee {
     public void setBirthDate(LocalDate birthDate) {
         this.empBirthDate = birthDate;
     }
-    public DateTimeFormatter convert() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        return formatter;
-    }
-    
-    public Formatter format(double d) {
-        Formatter formatter = new Formatter();
-        formatter.format("%.2f", d);
-        return formatter;
-    }
     
     public void displayInfo() {
         System.out.println(this);
@@ -78,10 +68,13 @@ public abstract class Employee {
     
     @Override
     public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        String dateHiredFormatted = formatter.format(this.empDateHired);
+        String birthDateFormatted = formatter.format(this.empBirthDate);
         return String.format("Employee Information: "
                 + "\nID: " + this.empID
                 + "\nName: " + this.empName.toString()
-                + "\nDate Hired: " + convert().format(this.empDateHired)
-                + "\nDate of Birth: " + convert().format(this.empBirthDate));
+                + "\nDate Hired: " + dateHiredFormatted
+                + "\nDate of Birth: " + birthDateFormatted);
     }
 }

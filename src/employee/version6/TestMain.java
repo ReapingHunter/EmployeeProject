@@ -13,6 +13,7 @@ import java.time.*;
 public class TestMain {
     
     public static void main(String[] args) {
+        int x;
         EmployeeRoster empList = new EmployeeRoster();
         EmployeeRoster searchEmp;
         HourlyEmployee h = new HourlyEmployee(20103264, new Name("Marlex", "Manalili", "Acorin"), LocalDate.of(2015, 5, 14), LocalDate.of(2003, 5, 13), 45.4f, 315);
@@ -63,8 +64,8 @@ public class TestMain {
         empList.updateEmployee(43, new Name("The", "Cringer"), LocalDate.MIN, LocalDate.MIN);
         empList.displayEmployee(c3);
         empList.displayAllEmployee();
-        System.out.println(empList.countHE());
         searchEmp = empList.searchEmployee("the");
+        System.out.println(empList.countHE());
     }
 }
 

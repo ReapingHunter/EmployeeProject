@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class EmployeeRoster {
     private ArrayList<Employee> empList;
-    private String format = "| %-15s | %-30s | %-30s | %-15s |\n";
+    private String format = "| %-15s | %-30s | %-30s | %-15s |";
     
     public EmployeeRoster() {
         empList = new ArrayList<>();
@@ -26,11 +26,15 @@ public class EmployeeRoster {
         this.empList = empList;
     }
     
+    public String getFormat() {
+        return format;
+    }
+    
     public void displayEmployee(Employee type) {
-        int x;
+        System.out.println(String.format(format, "ID ","Name", "Type", "Salary"));
         for(Employee emp : empList) {
             if(emp.getClass() == type.getClass()) {
-                System.out.printf(format, emp.getID(), emp.getName(), emp.getClass().getSimpleName(), emp.format(emp.computeSalary()));
+                System.out.println(String.format(format,emp.getID(), emp.getName(), emp.getClass().getSimpleName(), String.format("%.2f", emp.computeSalary())));
             }
         }
         System.out.println("\n");
@@ -38,17 +42,34 @@ public class EmployeeRoster {
     }
     
     public void displayAllEmployee() {
+        System.out.println(String.format(format, "ID","Name", "Type", "Salary"));
         for(Employee emp : empList){
-            System.out.printf(format, emp.getID(), emp.getName(), emp.getClass().getSimpleName(), emp.format(emp.computeSalary()));
+            System.out.println(String.format(format,emp.getID(), emp.getName(), emp.getClass().getSimpleName(), String.format("%.2f", emp.computeSalary())));
         }
         System.out.println("\n");
     }
     
+    private boolean isInstance(Employee emp, String type) {
+        boolean bool;
+        switch(type.toUpperCase()) {
+            case "HE" ->
+                bool = (emp instanceof HourlyEmployee);
+            case "PWE" ->
+                bool = (emp instanceof PieceWorkerEmployee);
+            case "CE" ->
+                bool = (emp instanceof CommissionEmployee);
+            case "BPCE" ->
+                bool = (emp instanceof BasePlusCommissionEmployee);
+            default ->
+                bool = false;
+        }
+        return bool;
+    }
+    
     public int countHE() {
-        int x;
         int c = 0;
         for(Employee emp : empList) {
-            if(emp instanceof HourlyEmployee) {
+            if(isInstance(emp, "HE")) {
                 c++;
             }
         }
@@ -56,10 +77,9 @@ public class EmployeeRoster {
     }
     
     public int countPWE() {
-        int x;
         int c = 0;
         for(Employee emp : empList) {
-            if(emp instanceof PieceWorkerEmployee) {
+            if(isInstance(emp, "PWE")) {
                 c++;
             }
         }
@@ -67,10 +87,9 @@ public class EmployeeRoster {
     }
     
     public int countCE() {
-        int x;
         int c = 0;
-         for(Employee emp : empList) {
-            if(emp instanceof CommissionEmployee) {
+        for(Employee emp : empList) {
+            if(isInstance(emp, "CE")) {
                 c++;
             }
         }
@@ -78,10 +97,9 @@ public class EmployeeRoster {
     }
     
     public int countBPCE() {
-        int x;
         int c = 0;
-         for(Employee emp : empList) {
-            if(emp instanceof BasePlusCommissionEmployee) {
+        for(Employee emp : empList) {
+            if(isInstance(emp, "BPCE")) {
                 c++;
             }
         }
@@ -132,15 +150,9 @@ public class EmployeeRoster {
         
         if(bool == 1) {
             System.out.println("Matches Found!!!\n");
-            emp.displayAllEmployee();
         } else {
             System.out.println("No match found...\n");
         }
         return emp;
-    }
-    
-    @Override
-    public String toString(){
-        return String.format("| ID              |  Name                          | Type                           | Salary          |");
     }
 }

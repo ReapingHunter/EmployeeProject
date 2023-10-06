@@ -52,12 +52,12 @@ public class CommissionEmployee extends Employee{
     
     @Override
     public void displayInfo() {
-        System.out.println(this + "\nSalary: " + format(this.computeSalary()) + "\n");
+        System.out.println(this + "\nSalary: " + this.computeSalary() + "\n");
     }
     
     @Override
     public String toString() {
         return String.format(super.toString()
-                + "\nTotal Sales: " + format(this.totalSales));
+                + "\nTotal Sales: " + this.totalSales);
     }
 }

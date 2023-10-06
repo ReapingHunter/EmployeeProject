@@ -57,7 +57,7 @@ public class HourlyEmployee extends Employee{
     
     @Override
     public void displayInfo() {
-        System.out.println(this + "\nSalary: " + format(this.computeSalary()) + "\n");
+        System.out.println(this + "\nSalary: " + this.computeSalary() + "\n");
     }
     
     @Override
